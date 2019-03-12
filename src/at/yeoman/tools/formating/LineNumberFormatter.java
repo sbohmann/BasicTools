@@ -26,13 +26,13 @@ public class LineNumberFormatter
 				}
 				lines.add(line);
 			}
-			int numChars = Integer.toString(lines.size() + 1).length();
+			int numChars = Integer.toString(lines.size()).length();
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			int lineNumber = 1;
 			for (String line : lines)
 			{
-				pw.printf("[%" + numChars + "s] %s%n",lineNumber++,line);
+				pw.printf("[%" + numChars + "d] %s%n",lineNumber++,line);
 			}
 			return new LineNumberFormattedText(sw.toString(),lines);
 		}
@@ -41,10 +41,10 @@ public class LineNumberFormatter
 			throw new RuntimeException(exc);
 		}
 	}
-	
+
 	/**
 	 * @author seb
-	 * 
+	 *
 	 * Contains the line number formatted text (with 1-based line numbers), as well as the lines (naturally 0-based)
 	 *
 	 */
@@ -52,7 +52,7 @@ public class LineNumberFormatter
 	{
 		private final String lineNumberFormattedText;
 		private final List<String> lines;
-		
+
 		public LineNumberFormattedText(String lineNumberFormattedText, List<String> lines)
 		{
 			this.lineNumberFormattedText = lineNumberFormattedText;
