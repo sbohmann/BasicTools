@@ -11,7 +11,7 @@ import java.util.List;
 
 public class LineNumberFormatter
 {
-	public static LineNumberFormatedText format(String text)
+	public static LineNumberFormattedText format(String text)
 	{
 		try
 		{
@@ -34,7 +34,7 @@ public class LineNumberFormatter
 			{
 				pw.printf("[%" + numChars + "s] %s%n",lineNumber++,line);
 			}
-			return new LineNumberFormatedText(sw.toString(),lines);
+			return new LineNumberFormattedText(sw.toString(),lines);
 		}
 		catch(IOException exc)
 		{
@@ -48,12 +48,12 @@ public class LineNumberFormatter
 	 * Contains the line number formatted text (with 1-based line numbers), as well as the lines (naturally 0-based)
 	 *
 	 */
-	public static class LineNumberFormatedText
+	public static class LineNumberFormattedText
 	{
 		private final String lineNumberFormattedText;
 		private final List<String> lines;
 		
-		public LineNumberFormatedText(String lineNumberFormattedText, List<String> lines)
+		public LineNumberFormattedText(String lineNumberFormattedText, List<String> lines)
 		{
 			this.lineNumberFormattedText = lineNumberFormattedText;
 			this.lines = lines;
